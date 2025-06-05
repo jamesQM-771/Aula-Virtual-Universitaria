@@ -1,0 +1,73 @@
+
+
+### **Componentes Principales**
+
+1. **Alumnos**
+   - **Tabla:** `alumnos`
+   - **Columnas:**
+     - `id_alumno`: Identificador único del alumno (entero).
+     - `n_identidad`: Número de identidad (bigint).
+     - `nombre`: Nombre del alumno (cadena de caracteres).
+     - `apellido`: Apellido del alumno (cadena de caracteres).
+     - `f_nacimiento`: Fecha de nacimiento del alumno (fecha).
+     - `sexo`: Género del alumno (cadena de caracteres).
+     - `id_curso`: Identificador del curso al que está inscrito (entero).
+     - `direccion`: Dirección del alumno (cadena de caracteres).
+     - `telefono`: Número de teléfono del alumno (cadena de caracteres).
+
+2. **Cursos**
+   - **Tabla:** `cursos`
+   - **Columnas:**
+     - `id_curso`: Identificador único del curso (entero).
+     - `nombre_curso`: Nombre del curso (cadena de caracteres).
+
+3. **Materias**
+   - **Tabla:** `materias`
+   - **Columnas:**
+     - `id_materia`: Identificador único de la materia (entero).
+     - `nombre`: Nombre de la materia (cadena de caracteres).
+     - `id_docente`: Identificador del docente asignado (entero).
+     - `id_curso`: Identificador del curso relacionado (entero).
+
+4. **Docentes**
+   - **Tabla:** `docentes`
+   - **Columnas:**
+     - `id_docente`: Identificador único del docente (entero).
+     - `n_identidad`: Número de identidad del docente (bigint).
+     - `nombre`: Nombre del docente (cadena de caracteres).
+     - `apellido`: Apellido del docente (cadena de caracteres).
+     - `especialidad`: Especialidad del docente (cadena de caracteres).
+
+5. **Notas**
+   - **Tabla:** `notas`
+   - **Columnas:**
+     - `id_nota`: Identificador único de la nota (entero).
+     - `id_alumno`: Identificador del alumno (entero).
+     - `id_materia`: Identificador de la materia (entero).
+     - `id_curso`: Identificador del curso relacionado (entero).
+     - `periodo`: Enumeración que define el periodo de la nota (valores posibles: 'previo_1', 'previo_2',
+		 'previo_3', 'nota_final').
+     - `acumulativo`: Nota acumulativa (entero).
+     - `examen`: Nota del examen (entero).
+     - `total`: Total de la nota (entero).
+
+### **Relaciones entre Tablas**
+
+- La tabla de **alumnos** está relacionada con:
+  - **cursos**: Un alumno puede estar inscrito en un solo curso.
+  - **notas**: Un alumno puede tener múltiples notas asociadas.
+
+- La tabla de **materias** está relacionada con:
+  - **docentes**: Una materia puede ser impartida por un solo docente.
+  - **notas**: Una materia puede tener múltiples notas asociadas a diferentes alumnos.
+
+- La tabla de **cursos** está relacionada con:
+  - **alumnos**: Un curso puede tener múltiples alumnos inscritos.
+  - **materias**: Un curso puede tener varias materias.
+
+### **Conclusión**
+
+Este esquema es útil para gestionar la información de un sistema educativo, 
+permitiendo llevar registro de alumnos, cursos, materias, 
+docentes y las notas obtenidas por los alumnos en las diversas materias. 
+Es un modelo relacional que facilita las consultas y reportes en un entorno académico.
